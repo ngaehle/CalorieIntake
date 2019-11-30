@@ -1,0 +1,10 @@
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\bin\Debug\CalorieIntake.exe.config
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\bin\Debug\CalorieIntake.exe
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\bin\Debug\CalorieIntake.pdb
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\obj\Debug\CalorieIntake.csprojAssemblyReference.cache
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\obj\Debug\CalorieIntake.CalorieIntake.resources
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\obj\Debug\CalorieIntake.Properties.Resources.resources
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\obj\Debug\CalorieIntake.csproj.GenerateResource.cache
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\obj\Debug\CalorieIntake.csproj.CoreCompileInputs.cache
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\obj\Debug\CalorieIntake.exe
+C:\Users\nicolegaehle\Documents\GitHub\CalorieIntake\CalorieIntake\obj\Debug\CalorieIntake.pdb
