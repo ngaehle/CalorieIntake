@@ -41,38 +41,38 @@ namespace CalorieIntake
         private void fatInput_TextChanged(object sender, EventArgs e)
         {
             
-            if (System.Text.RegularExpressions.Regex.IsMatch(fatInput.Text, "[^0-9]"))
-            {
-                fatInput.Clear();
+            //if (System.Text.RegularExpressions.Regex.IsMatch(fatInput.Text, @"\d+(\.\d{2,2})"))
+            //{
+            //    fatInput.Clear();
 
-                MessageBox.Show("Please enter only numbers.");
-                return;
+            //    MessageBox.Show("Please enter only numbers.");
+            //    return;
 
-            }
+            //}
         }
 
         private void carbInput_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(carbInput.Text, "[^0-9]"))
-            {
-                carbInput.Clear();
+            //if (System.Text.RegularExpressions.Regex.IsMatch(carbInput.Text, "[^0-9]"))
+            //{
+            //    carbInput.Clear();
 
-                MessageBox.Show("Please enter only numbers.");
-                return;
+            //    MessageBox.Show("Please enter only numbers.");
+            //    return;
 
-            }
+            //}
         }
 
         private void proteinInput_TextChanged(object sender, EventArgs e)
         {
-            if (System.Text.RegularExpressions.Regex.IsMatch(proteinInput.Text, "[^0-9]"))
-            {
-                proteinInput.Clear();
+            //if (System.Text.RegularExpressions.Regex.IsMatch(proteinInput.Text, "[^0-9]"))
+            //{
+            //    proteinInput.Clear();
 
-                MessageBox.Show("Please enter only numbers.");
-                return;
+            //    MessageBox.Show("Please enter only numbers.");
+            //    return;
 
-            }
+            //}
         }
 
         private void Fiber_Click(object sender, EventArgs e)
@@ -95,9 +95,9 @@ namespace CalorieIntake
         private void dataEntry_Click(object sender, EventArgs e)
         {
             double fatGrams, carbGrams, proteinGrams, fiberGrams;
+
             string ItemName;
             string theDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-
 
             fatGrams = double.Parse(fatInput.Text);
             carbGrams = double.Parse(carbInput.Text);
@@ -106,11 +106,10 @@ namespace CalorieIntake
             ItemName = (nameInput.Text).ToString();
 
 
-            if (fatGrams > 0)
+            if (fatGrams >= 0)
             {
                 fatGrams = fatGrams * 9;
             }
-
             else
             {
                 string message1 = "Please enter correct value of Fat";
@@ -119,7 +118,7 @@ namespace CalorieIntake
                 return;
             }
 
-            if (carbGrams > 0)
+            if (carbGrams >= 0)
             {
                 carbGrams = carbGrams * 4;
             }
@@ -131,7 +130,7 @@ namespace CalorieIntake
                 return;
             }
 
-            if (proteinGrams > 0)
+            if (proteinGrams >= 0)
             {
                 proteinGrams = proteinGrams * 4;
             }
@@ -143,11 +142,11 @@ namespace CalorieIntake
                 return;
             }
 
-            if (proteinGrams > 0)
+            if (proteinGrams >= 0)
             {
                 fiberGrams = (fatGrams + carbGrams + proteinGrams) * fiberGrams;
             }
-            else
+            else 
             {
                 string message4 = "Please enter correct value of serving amount of container";
                 string title4 = "Hint";
@@ -164,10 +163,11 @@ namespace CalorieIntake
             }
 
 
-            string message = ItemName + " Has Calories of : " + fiberGrams;
+            string message = ItemName + " has Calories of : " + fiberGrams;
             string title = theDate;
             MessageBox.Show(message, title);
 
+            //Writes to Database (future addition)
 
         }
 
@@ -186,14 +186,68 @@ namespace CalorieIntake
         private void nameInput_KeyPress(object sender, KeyPressEventArgs e)
         {
             {
-                if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+                if (!char.IsControl(e.KeyChar) && !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space))
                 {
                     e.Handled = true;
+;
 
                     MessageBox.Show("Please enter only Item Name.");
                     return;
                 }
             }
+        }
+
+        private void fatInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == '.'))
+            { e.Handled = true; }
+            TextBox txtDecimal = sender as TextBox;
+            if (e.KeyChar == '.' && txtDecimal.Text.Contains("."))
+            {
+                e.Handled = true;
+                fatInput.Clear();
+
+                MessageBox.Show("Please enter only numbers.");
+                return;
+
+
+            }
+        }
+
+        private void carbInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == '.'))
+            { e.Handled = true; }
+            TextBox txtDecimal = sender as TextBox;
+            if (e.KeyChar == '.' && txtDecimal.Text.Contains("."))
+            {
+                e.Handled = true;
+                carbInput.Clear();
+
+                MessageBox.Show("Please enter only numbers.");
+                return;
+
+
+            }
+        }
+
+        private void proteinInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == '.'))
+            { e.Handled = true; }
+            TextBox txtDecimal = sender as TextBox;
+            if (e.KeyChar == '.' && txtDecimal.Text.Contains("."))
+            {
+                e.Handled = true;
+               
+                proteinInput.Clear();
+
+                MessageBox.Show("Please enter only numbers.");
+                return;
+
+            }
+            
         }
     }
  }
